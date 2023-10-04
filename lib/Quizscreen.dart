@@ -7,7 +7,7 @@ class QuizScreen extends StatefulWidget {
 }
 
 class _QuizScreenState extends State<QuizScreen> {
-  var i = 0;int j=0;
+  var i = 0;int j=0;int score=0;
   List<int>submit=[];
   List<Color>bg=[Colors.green];
   @override
@@ -68,7 +68,7 @@ class _QuizScreenState extends State<QuizScreen> {
         ans[j]!=submit[j]){
           bg.add(Colors.red);
         }
-        else{
+        else{score++;
           bg.add(Colors.green);
         }
       }
@@ -87,7 +87,7 @@ class _QuizScreenState extends State<QuizScreen> {
         } else {
           Navigator.push(context, MaterialPageRoute(
             builder: (context) {
-              return result(submit,ques,bg);
+              return result(submit,ques,bg,score);
             },
           ));
         }
